@@ -8,20 +8,20 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#f5f3ff',   // Very soft lavender
+          100: '#f0e6ff',  // Lightest pastel lavender
+          200: '#e6d5ff',  // Light pastel lavender
+          300: '#d8c2ff',  // Soft pastel lavender
+          400: '#c7a6ff',  // Muted pastel lavender
+          500: '#b38aff',  // Base pastel lavender
+          600: '#a470e6',  // Soft medium lavender
+          700: '#8f55cc',  // Slightly deeper lavender
+          800: '#7a3cb3',  // Rich pastel lavender
+          900: '#693399',  // Deep pastel lavender
+          950: '#3d1c5c',  // Very deep lavender
         },
         secondary: {
-          50: '#f0fdf4',
+          50: '#f0fdf4',   // Keeping original secondary colors
           100: '#dcfce7',
           200: '#bbf7d0',
           300: '#86efac',

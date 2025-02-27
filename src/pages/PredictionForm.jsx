@@ -9,7 +9,9 @@ import LengthPicker from '../components/PredictionForm/LengthPicker';
 import { useFirestore } from '../hooks/useFirestore';
 import { validateName, validateRequired } from '../utils/validators';
 import { formatWeight, formatLength } from '../utils/formatters';
-import { FiUser, FiCalendar, FiClock, FiActivity, FiTruck } from 'react-icons/fi';
+import { FiUser, FiCalendar, FiClock, FiActivity } from 'react-icons/fi';
+import { TbRulerMeasure} from 'react-icons/tb';
+import { GiWeight } from 'react-icons/gi';
 
 // Simple time picker component
 const SimpleTimePicker = ({ selectedTime, onChange }) => {
@@ -197,7 +199,7 @@ const PredictionForm = () => {
               {/* Weight Picker */}
               <div>
                 <label className="block mb-2 text-gray-700 font-medium flex items-center">
-                  <FiActivity className="mr-2 text-primary-600" />
+                  <GiWeight className="mr-2 text-primary-600" />
                   Weight
                 </label>
                 <WeightPicker
@@ -212,7 +214,7 @@ const PredictionForm = () => {
               {/* Length Picker - ADDED */}
               <div>
                 <label className="block mb-2 text-gray-700 font-medium flex items-center">
-                  <FiTruck className="mr-2 text-primary-600" />
+                  <TbRulerMeasure className="mr-2 text-primary-600" />
                   Length
                 </label>
                 <LengthPicker
