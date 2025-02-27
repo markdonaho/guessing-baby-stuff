@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiUser, FiChevronRight } from 'react-icons/fi';
+import { FiEdit, FiBarChart2, FiChevronRight, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import ImageCarousel from '../components/Success/ImageCarousel';
+import SuccessStats from '../components/Success/SuccessStats';
 
 const Home = () => {
+  const [showStats, setShowStats] = useState(false);
+
+  const toggleStats = () => {
+    setShowStats(!showStats);
+  };
+
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
@@ -33,18 +40,22 @@ const Home = () => {
               <FiChevronRight className="text-primary-600 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <Link 
-              to="/admin" 
-              className="group btn-secondary-outline flex items-center justify-between px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            <button 
+              onClick={toggleStats}
+              className="w-full group btn-secondary-outline flex items-center justify-between px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="flex items-center space-x-4">
                 <div className="bg-gray-100 p-3 rounded-lg">
-                  <FiUser className="text-gray-600 w-6 h-6" />
+                  <FiBarChart2 className="text-gray-600 w-6 h-6" />
                 </div>
-                <span className="font-semibold text-gray-900">Admin Dashboard</span>
+                <span className="font-semibold text-gray-900">View Current Stats</span>
               </div>
-              <FiChevronRight className="text-gray-600 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              {showStats ? (
+                <FiChevronUp className="text-gray-600 group-hover:translate-y-1 transition-transform" />
+              ) : (
+                <FiChevronDown className="text-gray-600 group-hover:translate-y-1 transition-transform" />
+              )}
+            </button>
           </div>
         </div>
 
@@ -62,6 +73,19 @@ const Home = () => {
           <ImageCarousel />
         </div>
       </div>
+
+      {/* Stats Section - Only shown when toggled */}
+      {showStats && (
+        <div className="mt-12 max-w-4xl mx-auto animate-fade-in">
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-2xl font-bold text-center mb-6 text-primary-700 flex items-center justify-center">
+              <FiBarChart2 className="mr-2" />
+              Current Baby Predictions
+            </h2>
+            <SuccessStats />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
