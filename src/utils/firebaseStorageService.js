@@ -67,12 +67,12 @@ export const preloadedImageUrls = [
     alt: 'Gooden Family'
   },
   {
-    id: 'baby-photo-1',
+    id: 'kylan-sydney',
     url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/IMG_0803.png?alt=media&token=0a065e65-5e3a-49b5-a466-7e26448a6937',
     alt: 'Baby Photo'
   },
   {
-    id: 'baby-photo-2',
+    id: 'jordy-sydney',
     url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/IMG_4126.png?alt=media&token=324e27c7-9062-4b35-9362-2e9cbf270ba9',
     alt: 'Baby Photo'
   }
