@@ -10,7 +10,6 @@ const Home = () => {
         {/* Left Column - Messaging */}
         <div className="space-y-6 text-left">
           <div className="animate-slide-up">
-            <span className="badge badge-blue mb-2">Guessing Baby Stuff!!</span>
             <h1 className="text-4xl font-bold text-gradient-primary tracking-tight mb-4">
               Guess the Gooden
             </h1>

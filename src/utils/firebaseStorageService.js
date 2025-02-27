@@ -57,6 +57,11 @@ export const firebaseStorageService = {
 // Pre-defined Firebase Storage image URLs for immediate use
 export const preloadedImageUrls = [
   {
+    id: 'ultrasound',
+    url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/UltrasoundCropped.png?alt=media&token=fbd29754-f843-45ae-b96a-2e69725fbc8e',
+    alt: 'Ultrasound Image'
+  },
+  {
     id: 'gooden-family',
     url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/Goodens.png?alt=media&token=3a396e7f-b8db-4c13-90a3-777e9d8fb60e',
     alt: 'Gooden Family'
@@ -70,10 +75,6 @@ export const preloadedImageUrls = [
     id: 'baby-photo-2',
     url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/IMG_4126.png?alt=media&token=324e27c7-9062-4b35-9362-2e9cbf270ba9',
     alt: 'Baby Photo'
-  },
-  {
-    id: 'ultrasound',
-    url: 'https://firebasestorage.googleapis.com/v0/b/guessing-baby-stuff.firebasestorage.app/o/UltrasoundCropped.png?alt=media&token=fbd29754-f843-45ae-b96a-2e69725fbc8e',
-    alt: 'Ultrasound Image'
   }
+  
 ];

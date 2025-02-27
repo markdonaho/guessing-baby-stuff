@@ -80,44 +80,6 @@ const Header = () => {
                   Make Prediction
                 </NavLink>
               </li>
-              
-              {currentUser ? (
-                <>
-                  <li>
-                    <NavLink to="/admin" active={isActive('/admin')} scrolled={scrolled}>
-                      <FiUser className="mr-1.5" />
-                      Admin Dashboard
-                    </NavLink>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={handleLogout}
-                      className={`ml-2 flex items-center px-4 py-1.5 rounded-full ${
-                        scrolled 
-                          ? 'bg-primary-100 text-primary-700 hover:bg-primary-200' 
-                          : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
-                      } transition-all duration-200`}
-                    >
-                      <FiLogOut className="mr-1.5" />
-                      Logout
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <li>
-                  <Link 
-                    to="/login"
-                    className={`ml-2 flex items-center px-4 py-1.5 rounded-full ${
-                      scrolled 
-                        ? 'bg-primary-600 text-white hover:bg-primary-700' 
-                        : 'bg-white text-primary-600 hover:bg-opacity-90'
-                    } transition-all duration-200 font-medium`}
-                  >
-                    <FiUser className="mr-1.5" />
-                    Admin Login
-                  </Link>
-                </li>
-              )}
             </ul>
           </nav>
           
@@ -158,40 +120,6 @@ const Header = () => {
             <MobileNavLink to="/predict" active={isActive('/predict')} onClick={() => setMobileMenuOpen(false)}>
               <FiEdit className="mr-2" /> Make Prediction
             </MobileNavLink>
-            
-            {currentUser ? (
-              <>
-                <MobileNavLink to="/admin" active={isActive('/admin')} onClick={() => setMobileMenuOpen(false)}>
-                  <FiUser className="mr-2" /> Admin Dashboard
-                </MobileNavLink>
-                <li>
-                  <button 
-                    onClick={handleLogout}
-                    className={`w-full flex items-center px-4 py-2 rounded-md ${
-                      scrolled 
-                        ? 'bg-primary-100 text-primary-600 hover:bg-primary-200' 
-                        : 'bg-white bg-opacity-10 hover:bg-opacity-20'
-                    }`}
-                  >
-                    <FiLogOut className="mr-2" /> Logout
-                  </button>
-                </li>
-              </>
-            ) : (
-              <li>
-                <Link 
-                  to="/login"
-                  className={`flex items-center px-4 py-2 rounded-md ${
-                    scrolled 
-                      ? 'bg-primary-600 text-white hover:bg-primary-700' 
-                      : 'bg-white text-primary-600 hover:bg-opacity-90'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <FiUser className="mr-2" /> Admin Login
-                </Link>
-              </li>
-            )}
           </ul>
         </div>
       </div>
