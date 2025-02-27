@@ -1,68 +1,239 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Base styles for better typography */
+@layer base {
+  html {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-800;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Component abstractions */
+@layer components {
+  .form-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+      focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+      transition-all duration-200; 
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md
+      transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700
+      focus:ring-primary-500 shadow-sm hover:shadow
+      transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300
+      focus:ring-gray-400 shadow-sm hover:shadow
+      transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  /* Enhanced card styling */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden border border-gray-200;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Glass effect for containers */
+  .glass {
+    @apply bg-white bg-opacity-70 backdrop-filter backdrop-blur-md border border-gray-200;
+  }
+  
+  /* Enhanced badge styling */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-blue {
+    @apply bg-blue-100 text-blue-800 border border-blue-200;
+  }
+  
+  .badge-pink {
+    @apply bg-pink-100 text-pink-800 border border-pink-200;
+  }
+  
+  /* Status dot indicator */
+  .status-dot {
+    @apply inline-block w-2 h-2 rounded-full mr-1.5;
+  }
+  
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+  }
+  
+  /* Enhanced transitions */
+  .transition-hover {
+    @apply transition-all duration-200 ease-in-out;
+  }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  /* Gradient text utilities */
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary-600 to-secondary-400;
+  }
+  .btn-primary-outline {
+    @apply border border-primary-200 bg-white text-primary-900 hover:bg-primary-50;
+  }
+  
+  .btn-secondary-outline {
+    @apply border border-gray-200 bg-white text-gray-900 hover:bg-gray-50;
+  }
+  
+  /* Enhanced scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .btn-primary-outline {
+  @apply border border-primary-200 bg-white text-primary-900 hover:bg-primary-50;
+}
+
+.btn-secondary-outline {
+  @apply border border-gray-200 bg-white text-gray-900 hover:bg-gray-50;
+}
+}
+
+
+/* Add these styles to your index.css file */
+
+/* Full-screen success page */
+.success-page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Make sure the header doesn't overlap with our immersive content */
+.success-page-container header {
+  background: transparent !important;
+  position: absolute;
+  z-index: 30;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Override default container padding for the immersive success page */
+.success-page-container .container {
+  padding-top: 80px; /* Adjust based on your header height */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Floating info button animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
   }
-  a:hover {
-    color: #747bff;
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
   }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
   }
+}
+
+.floating-info-button {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Stats transition effects */
+.stats-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.stats-section.open {
+  max-height: 2000px;
+}
+
+/* Stats cards hover effects */
+.stats-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced gradient backgrounds for stats cards */
+.card-gradient-blue {
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+}
+
+.card-gradient-green {
+  background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+}
+
+/* Special animation for the popular date card */
+@keyframes highlight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(14, 165, 233, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+  }
+}
+
+.popular-date-card {
+  animation: highlight-pulse 2s infinite;
 }
